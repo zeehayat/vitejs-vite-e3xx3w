@@ -1,12 +1,28 @@
 <template>
 <div class='result'>
-{{score}}
+{{score}} || {{this.rank}}
 </div>
 </template>
 
 <script>
 export default{
-  props:['score']
+  props:['score'],
+  data(){
+    return {
+      rank:null
+    }
+  },
+  mounted(){
+    if(this.score<250){
+      this.rank='You are a Ninja'
+    }
+    else if (this.score<500){
+      this.rank='Quick Reflexes'
+    }
+    else {
+      this.rank='Slow Coach'
+    }
+  }
 }
 </script>
 <style>
